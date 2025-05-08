@@ -26,7 +26,7 @@ export default function Chatbot() {
     setInput("");
 
     try {
-      const res = await axios.post("http://0.0.0.0:2900/api/tts", {
+      const res = await axios.post("http://localhost:2900/api/tts", {
         text,
       });
 
@@ -51,7 +51,7 @@ export default function Chatbot() {
   };
 
   useEffect(() => {
-    const socket = new WebSocket("ws://0.0.0.0:2900/ws/stt/1"); // ✅ Make sure this is your actual STT WebSocket endpoint
+    const socket = new WebSocket("ws://localhost:2900/ws/stt/1"); // ✅ Make sure this is your actual STT WebSocket endpoint
     wsRef.current = socket;
 
     socket.onopen = () => {
@@ -115,7 +115,7 @@ export default function Chatbot() {
         }
         // try {
         //   const res = await axios.post(
-        //     "http://0.0.0.0:2900/api/stt/prerecorded/1",
+        //     "http://localhost:2900/api/stt/prerecorded/1",
         //     form,
         //     { headers: { "Content-Type": "multipart/form-data" } }
         //   );
@@ -151,7 +151,7 @@ export default function Chatbot() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.4 }}
-      className="relative h-[calc(100vh-120px)] flex flex-col bg-zinc-900"
+      className="relative h-[calc(100vh-120px)] flex flex-col bg-zinc-900 items-center"
     >
       {/* Message Area */}
       {messages.length > 0 ? (
