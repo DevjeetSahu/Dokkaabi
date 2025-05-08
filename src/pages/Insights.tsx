@@ -146,7 +146,7 @@ export default function Insights() {
                 </Pie>
                 <Tooltip
                   contentStyle={{
-                    backgroundColor: "#1f2937",
+                    backgroundColor: "#ffffff",
                     borderColor: "#374151",
                     color: "#fff",
                   }}

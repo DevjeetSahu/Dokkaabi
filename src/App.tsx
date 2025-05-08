@@ -4,7 +4,7 @@ import DashboardLayout from "./pages/DashboardLayout";
 import JobsPage from "./pages/Jobs";
 import CandidatesPage from "./pages/Candidates";
 import InsightsPage from "./pages/Insights"
-import Chatbot from "./Chatbot";
+import Chatbot from "./pages/Chatbot";
 
 function App() {
   return (
