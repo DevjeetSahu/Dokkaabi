@@ -26,7 +26,7 @@ export default function Chatbot() {
     setInput("");
 
     try {
-      const res = await axios.post("http://127.0.0.1:2900/api/tts", {
+      const res = await axios.post("http://0.0.0.0:2900/api/tts", {
         text,
       });
 
@@ -51,7 +51,7 @@ export default function Chatbot() {
   };
 
   useEffect(() => {
-    const socket = new WebSocket("ws://127.0.0.1:2900/ws/stt/1"); // ✅ Make sure this is your actual STT WebSocket endpoint
+    const socket = new WebSocket("ws://0.0.0.0:2900/ws/stt/1"); // ✅ Make sure this is your actual STT WebSocket endpoint
     wsRef.current = socket;
 
     socket.onopen = () => {
@@ -101,13 +101,12 @@ export default function Chatbot() {
       audioChunksRef.current = [];
       mr.ondataavailable = (e) => audioChunksRef.current.push(e.data);
       mr.onstop = async () => {
-        
         const form = new FormData();
         const response = await fetch("/voice.wav"); // must be in `public/` folder
         const arrayBuffer = await response.arrayBuffer();
         const blob = new Blob([arrayBuffer], { type: "audio/wav" });
         form.append("audio_file", blob, "voice.wav");
-        
+
         if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
           wsRef.current.send(arrayBuffer); // Send audio data to backend
           console.log("📤 Sent audio data to WebSocket");
@@ -116,7 +115,7 @@ export default function Chatbot() {
         }
         // try {
         //   const res = await axios.post(
-        //     "http://127.0.0.1:2900/api/stt/prerecorded/1",
+        //     "http://0.0.0.0:2900/api/stt/prerecorded/1",
         //     form,
         //     { headers: { "Content-Type": "multipart/form-data" } }
         //   );
