@@ -122,7 +122,7 @@ export default function CandidatesPage() {
             className={
               "pb-2 text-sm font-medium " +
               (activeTab === tab
-                ? "border-b-2 border-purple-500 text-white"
+                ? "border-b-2 border-pink-500 text-white"
                 : "text-zinc-400 hover:text-white")
             }
           >

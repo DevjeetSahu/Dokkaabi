@@ -118,6 +118,9 @@
     @apply bg-background text-foreground;
   }
 }
+.flex-1::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in WebKit-based browsers (Chrome, Safari) */
+}
 
 
 

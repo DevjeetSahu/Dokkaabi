@@ -92,14 +92,14 @@ export default function JobsPage() {
               transition={{ duration: 0.3 }}
             >
               <div
-                className="relative bg-zinc-900 p-5 rounded-2xl shadow-lg text-white overflow-hidden border-l-4"
+                className="relative bg-zinc-800 p-5 rounded-2xl shadow-lg text-white overflow-hidden border-l-4"
                 style={{ borderColor: job.color }} // dynamic left strip
               >
                 {/* Gradient circle in top-right */}
                 <div
-                  className="absolute right-[-40px] top-[-40px] w-16 h-16 md:w-20 md:h-20 rounded-full pointer-events-none"
+                  className="absolute right-[-40px] top-[-40px] w-80 h-80 rounded-full pointer-events-none"
                   style={{
-                    background: `radial-gradient(circle, ${job.color}44, transparent 60%)`,
+                    background: `radial-gradient(circle, ${job.color}60, transparent 60%)`,
                     transform: "translate(30%, -30%)",
                   }}
                 />
@@ -108,7 +108,7 @@ export default function JobsPage() {
                 <div className="relative z-10 space-y-2">
                   <div className="flex justify-between items-start">
                     <div className="flex items-center gap-3">
-                      <img src={job.logo} alt="" className="w-8 h-8" />
+                      <img src={job.logo} alt="logo" className="w-8 h-8" />
                       <div>
                         <h3 className="text-lg font-semibold">{job.title}</h3>
                         <p className="text-sm text-zinc-400">
@@ -133,8 +133,10 @@ export default function JobsPage() {
                   </div>
 
                   <div className="flex justify-between items-center mt-3">
-                    <p className="text-2xl font-bold">{job.applicants}</p>
-                    <span>applicants</span>
+                    <div className="flex justify-center items-center">
+                      <p className="text-2xl font-bold">{job.applicants}</p>
+                      <span className="text-zinc-400 ml-1.5">applicants</span>
+                    </div>
                     <p className="text-green-400 text-sm">
                       {job.recentApplications} in last week
                     </p>

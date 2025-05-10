@@ -118,7 +118,7 @@ export default function Insights() {
         {/* Pie Chart Card */}
         <div className="relative bg-zinc-900 p-4 sm:p-5 rounded-2xl shadow-lg text-white overflow-hidden border-l-4 border-purple-500 col-span-1 lg:col-span-2">
           <div
-            className="absolute right-[-40px] top-[-40px] w-80 h-80 rounded-full pointer-events-none"
+            className="absolute right-[-40px] top-[-40px] w-100 h-100 rounded-full pointer-events-none"
             style={{
               background: `radial-gradient(circle, #8b5cf644, transparent 60%)`,
               transform: "translate(30%, -30%)",
@@ -135,7 +135,6 @@ export default function Insights() {
                   cx="50%"
                   cy="50%"
                   outerRadius={100}
-                  label={({ name }) => name}
                 >
                   {popularRoles.map((_entry, index) => (
                     <Cell
